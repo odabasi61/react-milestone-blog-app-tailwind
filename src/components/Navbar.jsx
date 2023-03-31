@@ -1,5 +1,6 @@
 import React from "react";
 import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
 import logo from "../assets/blog.png";
 
 const Navbar = () => {
@@ -7,12 +8,12 @@ const Navbar = () => {
     <div>
       <nav className="p-4">
         <div className="flex flex-wrap items-center justify-between rounded-lg mx-auto p-4 bg-blue-800">
-          <a href="#" className="flex items-center">
+          <Link className="flex items-center">
             <img src={logo} className="h-8 mr-3" alt="Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               My Blog
             </span>
-          </a>
+          </Link>
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
@@ -29,9 +30,9 @@ const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
@@ -39,45 +40,41 @@ const Navbar = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col items-center font-medium p-4 md:py-0 md:px-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-blue-200">
+            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:border-0 md:bg-blue-200">
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                <Link
+                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              {/* <li>
+                <Link
+                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded  md:border-0"
                 >
                   Services
-                </a>
+                </Link>
+              </li> */}
+              <li>
+                <Link
+                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded  md:border-0"
+                >
+                  My Blog
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                <Link
+                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded  md:border-0"
                 >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Contact
-                </a>
+                  About Us
+                </Link>
               </li>
               <li>
                 <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
-                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 rounded md:p-2 focus:bg-blue-700 md:border-0 md:w-auto "
                 >
                   <span className="block md:hidden">Profile </span>
                   <CgProfile size={40} className="hidden md:block" />
@@ -89,9 +86,9 @@ const Navbar = () => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                 </button>
@@ -99,36 +96,40 @@ const Navbar = () => {
                 {/* Dropdown menu */}
                 <div
                   id="dropdownNavbar"
-                  className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                  className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
                 >
                   <ul
-                    className="py-2 text-sm text-gray-700 dark:text-gray-400"
+                    className="py-2 text-sm text-gray-700"
                     aria-labelledby="dropdownLargeButton"
                   >
                     <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      <Link
+                        className="block px-4 py-2 hover:bg-gray-100"
                       >
                         My Blogs
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      <Link
+                        className="block px-4 py-2 hover:bg-gray-100"
                       >
                         My Profile
-                      </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        Register
+                      </Link>
                     </li>
                   </ul>
-                  <div class="py-1">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                  <div className="py-1">
+                    <Link
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       Sign out
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
