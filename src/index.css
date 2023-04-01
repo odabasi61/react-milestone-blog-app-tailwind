@@ -10,4 +10,10 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 115, 0, 1) 5%,
+    rgba(254, 255, 0, 1) 50%,
+    rgba(255, 115, 0, 1) 95%
+  );
 }

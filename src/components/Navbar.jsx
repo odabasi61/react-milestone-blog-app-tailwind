@@ -7,17 +7,17 @@ const Navbar = () => {
   return (
     <div>
       <nav className="p-4">
-        <div className="flex flex-wrap items-center justify-between rounded-lg mx-auto p-4 bg-blue-800">
-          <Link className="flex items-center">
+        <div className="flex flex-wrap items-center justify-between rounded-lg mx-auto p-4 bg-blue-950">
+          <Link to={"/"} className="flex items-center">
             <img src={logo} className="h-8 mr-3" alt="Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              My Blog
+            <span className="self-center text-2xl font-semibold whitespace-nowrap text-orange-300">
+              Insightful Views
             </span>
           </Link>
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
-            className="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-gray-100 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            className="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-gray-100 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-gray-200"
             aria-controls="navbar-dropdown"
             aria-expanded="false"
           >
@@ -40,10 +40,11 @@ const Navbar = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:border-0 md:bg-blue-200">
+            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:border-0 md:bg-orange-200">
               <li>
                 <Link
-                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded"
+                  to={"/"}
+                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-orange-400 rounded focus:text-white"
                   aria-current="page"
                 >
                   Home
@@ -58,14 +59,16 @@ const Navbar = () => {
               </li> */}
               <li>
                 <Link
-                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded  md:border-0"
+                  to={"advertising"}
+                  className="block py-2 pl-3 pr-4 md:p-4  focus:bg-orange-400 rounded focus:text-white md:border-0"
                 >
-                  My Blog
+                  Advertising
                 </Link>
               </li>
               <li>
                 <Link
-                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded  md:border-0"
+                  to={"about"}
+                  className="block py-2 pl-3 pr-4 md:p-4  focus:bg-orange-400 rounded focus:text-white  md:border-0"
                 >
                   About Us
                 </Link>
@@ -74,7 +77,7 @@ const Navbar = () => {
                 <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
-                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 rounded md:p-2 focus:bg-blue-700 md:border-0 md:w-auto "
+                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 md:p-2  focus:bg-orange-400 rounded focus:text-white md:border-0 md:w-auto "
                 >
                   <span className="block md:hidden">Profile </span>
                   <CgProfile size={40} className="hidden md:block" />
@@ -103,32 +106,24 @@ const Navbar = () => {
                     aria-labelledby="dropdownLargeButton"
                   >
                     <li>
-                      <Link
-                        className="block px-4 py-2 hover:bg-gray-100"
-                      >
+                      <Link className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
                         My Blogs
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        className="block px-4 py-2 hover:bg-gray-100"
-                      >
+                      <Link className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
                         My Profile
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        className="block px-4 py-2 hover:bg-gray-100"
-                      >
+                      <Link className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
                         Register
                       </Link>
                     </li>
                   </ul>
                   <div className="py-1">
-                    <Link
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      Sign out
+                    <Link className="block px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
+                      Sign in
                     </Link>
                   </div>
                 </div>
