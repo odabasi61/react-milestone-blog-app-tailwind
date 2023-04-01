@@ -7,6 +7,11 @@ import Contact from "../pages/Contact";
 import Privacy from "../pages/Privacy";
 import Support from "../pages/Support";
 import Advertise from "../pages/Advertise";
+import Login from "../components/auth/Login";
+import Register from "../components/auth/Register";
+import PrivateRouter from "./PrivateRouter";
+import MyBlogs from "../pages/MyBlogs";
+import Profile from "../pages/Profile";
 
 const AppRouter = () => {
   return (
@@ -15,11 +20,19 @@ const AppRouter = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="advertising" element={<Advertise />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="support" element={<Support />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/advertising" element={<Advertise />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/my-blogs" element={<PrivateRouter />}>
+            <Route path="" element={<MyBlogs />} />
+          </Route>
+          <Route path="/my-profile" element={<PrivateRouter />}>
+            <Route path="" element={<Profile />} />
+          </Route>
         </Routes>
         <Footer />
       </BrowserRouter>

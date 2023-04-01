@@ -18,7 +18,7 @@ const Privacy = () => {
         </p>
         <p>
           If you have additional questions or require more information about our
-          Privacy Policy, do not hesitate to contact us through email at
+          Privacy Policy, do not hesitate to contact us through email at{" "}
           <Link className="text-blue-950 underline font-bold">
             info@insightfulviews.com
           </Link>
@@ -33,13 +33,12 @@ const Privacy = () => {
           These files log visitors when they visit websites. All hosting
           companies do this and a part of hosting services' analytics. The
           information collected by log files include internet protocol{" "}
-          <b>(IP)</b>
-          addresses, browser type, Internet Service Provider <b>(ISP)</b>, date
-          and time stamp, referring/exit pages, and possibly the number of
-          clicks. These are not linked to any information that is personally
-          identifiable. The purpose of the information is for analyzing trends,
-          administering the site, tracking users' movement on the website, and
-          gathering demographic information.
+          <b>(IP)</b> addresses, browser type, Internet Service Provider{" "}
+          <b>(ISP)</b>, date and time stamp, referring/exit pages, and possibly
+          the number of clicks. These are not linked to any information that is
+          personally identifiable. The purpose of the information is for
+          analyzing trends, administering the site, tracking users' movement on
+          the website, and gathering demographic information.
         </p>
       </div>
 

@@ -50,13 +50,6 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              {/* <li>
-                <Link
-                  className="block py-2 pl-3 pr-4 md:p-4 focus:bg-blue-700 rounded  md:border-0"
-                >
-                  Services
-                </Link>
-              </li> */}
               <li>
                 <Link
                   to={"advertising"}
@@ -106,23 +99,35 @@ const Navbar = () => {
                     aria-labelledby="dropdownLargeButton"
                   >
                     <li>
-                      <Link className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
+                      <Link
+                        to={"/my-blogs"}
+                        className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
+                      >
                         My Blogs
                       </Link>
                     </li>
                     <li>
-                      <Link className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
+                      <Link
+                        to={"/my-profile"}
+                        className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
+                      >
                         My Profile
                       </Link>
                     </li>
                     <li>
-                      <Link className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
+                      <Link
+                        to={"register"}
+                        className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
+                      >
                         Register
                       </Link>
                     </li>
                   </ul>
                   <div className="py-1">
-                    <Link className="block px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white">
+                    <Link
+                      to={"login"}
+                      className="block px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
+                    >
                       Sign in
                     </Link>
                   </div>

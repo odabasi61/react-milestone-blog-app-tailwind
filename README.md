@@ -5,6 +5,5 @@ Which react technologies and libraries used in this project?
 - Tailwind flowbite
 - React-router-dom
 - Axios
-- Formik and yup
 - Toastify
 - React icons
