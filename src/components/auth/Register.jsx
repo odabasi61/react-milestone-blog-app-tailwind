@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useAuthCall from "../../hooks/useAuthCall";
 
 const Register = () => {
+  const { register } = useAuthCall();
+
   return (
     <div className="p-4">
       <h2 className="text-center p-4 bg-white/60 shadow-2xl w-1/4 mx-auto text-orange-500 rounded-full mt-4 mb-12 font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
@@ -24,37 +27,55 @@ const Register = () => {
             Email address
           </label>
         </div>
-        <div class="relative z-0 w-full mb-6 group">
-          <input
-            type="password"
-            name="floating_password"
-            id="floating_password"
-            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-          <label
-            for="floating_password"
-            className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Password
-          </label>
-        </div>
         <div className="relative z-0 w-full mb-6 group">
           <input
-            type="password"
-            name="repeat_password"
-            id="floating_repeat_password"
+            type="text"
+            name="floating_last_name"
+            id="floating_last_name"
             className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
           />
           <label
-            for="floating_repeat_password"
+            for="floating_last_name"
             className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Confirm password
+            Username
           </label>
+        </div>
+        <div className="grid md:grid-cols-2 md:gap-6">
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              type="password"
+              name="floating_password"
+              id="floating_password"
+              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_password"
+              className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Password
+            </label>
+          </div>
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="password"
+              name="repeat_password"
+              id="floating_repeat_password"
+              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_repeat_password"
+              className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Confirm password
+            </label>
+          </div>
         </div>
         <div className="grid md:grid-cols-2 md:gap-6">
           <div className="relative z-0 w-full mb-6 group">
@@ -105,7 +126,7 @@ const Register = () => {
               for="floating_phone"
               className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Phone number (123-456-7890)
+              Profile picture
             </label>
           </div>
           <div className="relative z-0 w-full mb-6 group">
@@ -121,7 +142,7 @@ const Register = () => {
               for="floating_company"
               className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Company (Ex. Google)
+              Bio
             </label>
           </div>
         </div>

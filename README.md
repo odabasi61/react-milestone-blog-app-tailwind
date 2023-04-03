@@ -1,7 +1,8 @@
 Which react technologies and libraries used in this project?
 
-- Context Api
-- Tailwind CSS
+- Redux toolkit
+- Redux persist
+- Tailwind css
 - Tailwind flowbite
 - React-router-dom
 - Axios
