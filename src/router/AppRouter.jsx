@@ -10,6 +10,7 @@ import Advertise from "../pages/Advertise";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import PrivateRouter from "./PrivateRouter";
+import NewBlog from "../pages/NewBlog";
 import MyBlogs from "../pages/MyBlogs";
 import Profile from "../pages/Profile";
 
@@ -27,6 +28,9 @@ const AppRouter = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/new-blog" element={<PrivateRouter />}>
+            <Route path="" element={<NewBlog />} />
+          </Route>
           <Route path="/my-blogs" element={<PrivateRouter />}>
             <Route path="" element={<MyBlogs />} />
           </Route>

@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/authSlice";
+import blogReducer from "../features/blogSlice";
 
 // user bilgilerini localstorage eklemek için persist kütüphanesini kullandık. aynı zamanda reducerları da birleştirdik.
 import {
@@ -24,6 +25,7 @@ const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
+    blogs: blogReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

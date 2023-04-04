@@ -2,8 +2,13 @@ import React from "react";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import logo from "../assets/blog.png";
+import { useSelector } from "react-redux";
+import useAuthCall from "../hooks/useAuthCall";
 
 const Navbar = () => {
+  const { currentUser } = useSelector((state) => state.auth);
+  const { logout } = useAuthCall();
+
   return (
     <div>
       <nav className="p-4">
@@ -73,7 +78,16 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full py-2 pl-3 pr-4 md:p-2  focus:bg-orange-400 rounded focus:text-white md:border-0 md:w-auto "
                 >
                   <span className="block md:hidden">Profile </span>
-                  <CgProfile size={40} className="hidden md:block" />
+                  {!currentUser ? (
+                    <CgProfile size={40} className="hidden md:block" />
+                  ) : (
+                    <img
+                      className="hidden md:block rounded-full"
+                      style={{ width: "40px" }}
+                      src={currentUser?.image}
+                      alt="profile pic"
+                    />
+                  )}
                   <svg
                     className="w-5 h-5 ml-1"
                     aria-hidden="true"
@@ -99,6 +113,12 @@ const Navbar = () => {
                     aria-labelledby="dropdownLargeButton"
                   >
                     <li>
+                      <Link
+                        to={"/new-blog"}
+                        className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
+                      >
+                        New Blog
+                      </Link>
                       <Link
                         to={"/my-blogs"}
                         className="block px-4 py-2 hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
@@ -128,7 +148,7 @@ const Navbar = () => {
                       to={"login"}
                       className="block px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
                     >
-                      Sign in
+                      {!currentUser ? "Sign in" : "Sign out"}
                     </Link>
                   </div>
                 </div>

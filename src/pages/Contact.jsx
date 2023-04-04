@@ -34,7 +34,7 @@ const Contact = () => {
               ></textarea>
             </div>
             <div className="flex justify-center pt-4">
-              <button className="text-white bg-blue-950 py-2 w-full rounded-lg">
+              <button className="text-white bg-blue-950 py-2 w-full rounded-lg mb-16">
                 Send
               </button>
             </div>
