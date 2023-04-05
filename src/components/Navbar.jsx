@@ -144,12 +144,21 @@ const Navbar = () => {
                     </li>
                   </ul>
                   <div className="py-1">
-                    <Link
-                      to={"login"}
-                      className="block px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
-                    >
-                      {!currentUser ? "Sign in" : "Sign out"}
-                    </Link>
+                    {!currentUser ? (
+                      <Link
+                        to={"login"}
+                        className="block px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
+                      >
+                        Sign in
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => logout()}
+                        className="block w-full text-left px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
+                      >
+                        Sign out
+                      </button>
+                    )}
                   </div>
                 </div>
               </li>
