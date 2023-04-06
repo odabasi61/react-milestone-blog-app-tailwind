@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// authslice içerisinde initialstate durumları ve login, logout, register vs durumların başlangıç, success ve fail durumlarını belirleriz. bunları daha sonra useauthcall de çağıracağız.
+// authslice içerisinde initialstate durumları ve login, logout, register vs durumların başlangıç, success ve fail durumlarını belirleriz (mesela kullanıcı login olunca kullanıcı adı ve profil resmi görünsün istiyorsak loginsucceste belirtiyoruz). bunları daha sonra useauthcall de çağıracağız.
 
 const authSlice = createSlice({
   name: "auth",
@@ -10,6 +10,11 @@ const authSlice = createSlice({
     loading: false,
     error: false,
     token: null,
+    id: null,
+    image: null,
+    email: null,
+    first_name: null,
+    last_name: null,
   },
   reducers: {
     fetchStart: (state) => {
@@ -19,7 +24,12 @@ const authSlice = createSlice({
     loginSuccess: (state, { payload }) => {
       state.loading = false;
       state.currentUser = payload?.user?.username;
+      state.image = payload?.user?.image;
+      state.email = payload?.user?.email;
+      state.first_name = payload?.user?.first_name;
+      state.last_name = payload?.user?.last_name;
       state.token = payload?.key;
+      state.id = payload?.user?.id;
     },
     logoutSuccess: (state) => {
       state.loading = false;

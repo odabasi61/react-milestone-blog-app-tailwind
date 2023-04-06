@@ -2,32 +2,34 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-  const { currentUser } = useSelector((state) => state.auth);
+  const { currentUser, image, first_name, last_name, email } = useSelector(
+    (state) => state.auth
+  );
 
   return (
-    <div className="p-8 md:py-20">
-      <div className="m-auto w-80 xl:w-[700px] h-fit p-4 md:p-6 bg-white/50 rounded-lg shadow-2xl">
+    <div className="py-8 px-1 md:py-20">
+      <div className="m-auto w-80 lg:w-[500px] h-fit p-4 md:p-6 bg-white/50 rounded-lg shadow-2xl">
         <div>
-          <img className="w-full" src={currentUser.image} alt="profile pic" />
+          <img className="w-full rounded-full" src={image} alt="profile pic" />
         </div>
-        <div className="border-b border-black">
+        <div className="border-b border-black pt-4">
           <p>
-            Username: <span>{currentUser.username}</span>
+            <b>Username:</b> <span>{currentUser}</span>
           </p>
         </div>
         <div className="border-b border-black pt-4">
           <p>
-            First name: <span>{currentUser.first_name}</span>
+            <b>First name:</b> <span>{first_name}</span>
           </p>
         </div>
         <div className="border-b border-black pt-4">
           <p>
-            Last name: <span>{currentUser.last_name}</span>
+            <b>Last name:</b> <span>{last_name}</span>
           </p>
         </div>
         <div className="border-b border-black pt-4">
           <p>
-            Email: <span>{currentUser.email}</span>
+            <b>Email:</b> <span>{email}</span>
           </p>
         </div>
       </div>

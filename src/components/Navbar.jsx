@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import useAuthCall from "../hooks/useAuthCall";
 
 const Navbar = () => {
-  const { currentUser } = useSelector((state) => state.auth);
+  const { currentUser, image, username } = useSelector((state) => state.auth);
   const { logout } = useAuthCall();
 
   return (
@@ -45,7 +45,7 @@ const Navbar = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:border-0 md:bg-orange-200">
+            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:border-0 md:bg-orange-200 relative">
               <li>
                 <Link
                   to={"/"}
@@ -71,11 +71,16 @@ const Navbar = () => {
                   About Us
                 </Link>
               </li>
-              <li>
+              <li className="hidden userName-hover:block">
+                <span className="text-black bg-white p-2 rounded-lg absolute -bottom-6 right-20">
+                  {currentUser}
+                </span>
+              </li>
+              <li className="userName">
                 <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
-                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 md:p-2  focus:bg-orange-400 rounded focus:text-white md:border-0 md:w-auto "
+                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 md:p-2  focus:bg-orange-400 rounded focus:text-white md:border-0 md:w-auto"
                 >
                   <span className="block md:hidden">Profile </span>
                   {!currentUser ? (
@@ -84,7 +89,7 @@ const Navbar = () => {
                     <img
                       className="hidden md:block rounded-full"
                       style={{ width: "40px" }}
-                      src={currentUser?.image}
+                      src={image}
                       alt="profile pic"
                     />
                   )}
@@ -152,12 +157,13 @@ const Navbar = () => {
                         Sign in
                       </Link>
                     ) : (
-                      <button
+                      <Link
+                        to={"/"}
                         onClick={() => logout()}
                         className="block w-full text-left px-4 py-2 text-sm hover:bg-orange-100  focus:bg-orange-400 rounded focus:text-white"
                       >
                         Sign out
-                      </button>
+                      </Link>
                     )}
                   </div>
                 </div>
