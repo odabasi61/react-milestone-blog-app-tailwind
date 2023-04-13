@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import useAxios from "./useAxios";
 
 const useBlogCall = () => {
-  const { axiosPublic, axiosWithToken } = useAxios();
+  const { axiosWithPublic, axiosWithToken } = useAxios();
   const dispatch = useDispatch();
 
   const getBlogs = async (url) => {
@@ -25,8 +25,9 @@ const useBlogCall = () => {
   const getCategories = async (url) => {
     dispatch(fetchStart());
     try {
-      const { data } = await axiosPublic.get(`api/${url}/`);
+      const { data } = await axiosWithPublic.get(`api/${url}/`);
       dispatch(getSuccess({ data, url }));
+      console.log(data);
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());

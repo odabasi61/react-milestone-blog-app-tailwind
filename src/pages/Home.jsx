@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useBlogCall from "../hooks/useBlogCall";
 import { useSelector } from "react-redux";
-import loading from "../assets/loading.gif";
+import Card from "../components/blog/Card";
 
 const Home = () => {
   const { getBlogs } = useBlogCall();
@@ -24,7 +24,11 @@ const Home = () => {
           <h1 className="text-center py-4 md:py-6 xl:py-8 font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">
             Recent Blogs
           </h1>
-          <div className="flex flex-wrap items-center justify-center gap-4"></div>
+          <div className="flex flex-wrap items-center justify-center gap-4 p-8">
+            {blogs?.map((blog, index) => (
+              <Card key={index} blog={blog} />
+            ))}
+          </div>
         </div>
       )}
     </>

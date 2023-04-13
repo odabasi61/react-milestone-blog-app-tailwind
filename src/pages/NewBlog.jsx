@@ -14,18 +14,14 @@ const NewBlog = () => {
   const [formData, setFormData] = useState(initialState);
   const { categories } = useSelector((state) => state.blog);
   const { getCategories, postBlogData } = useBlogCall();
+  // console.log(categories);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     postBlogData("blogs", formData);
-    setFormData({
-      title: "",
-      content: "",
-      image: "",
-      category: "",
-      status: "",
-    });
+    setFormData(initialState);
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -36,7 +32,7 @@ const NewBlog = () => {
   }, []);
 
   return (
-    <div className="p-32">
+    <div className="px-4 py-32">
       <div className="p-4 md:p-6 lg:p-8 m-auto w-full sm:w-2/3 md:w-1/2 lg:w/1-3 xl:w-1/2 2xl:w-1/3 shadow-xl h-fit bg-white/50 rounded-xl">
         <h2 className="pb-4 font-bold">Create new post</h2>
         <form onSubmit={handleSubmit}>
@@ -67,7 +63,7 @@ const NewBlog = () => {
               className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
-              value={formData.image || ""}
+              value={formData?.image || ""}
               onChange={handleChange}
             />
             <label
@@ -78,70 +74,32 @@ const NewBlog = () => {
             </label>
           </div>
 
-          {/* <div className="relative z-0 w-full mb-6 group">
-            <input
-              type="text"
-              name="categories"
-              id="floating_password"
-              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required
-            />
-            <label
-              htmlFor="floating_password"
-              className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Categories
-            </label>
-          </div> */}
-
           <div className="relative z-0 w-full mb-6 group">
             <select
               name="category"
               id="category"
               className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              value={formData.category || ""}
+              value={formData?.category || ""}
               onChange={handleChange}
             >
-              <option value="" selected>
-                Categories
-              </option>
+              <option value="">Categories</option>
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
-                  {category.name}
+                  {category?.name}
                 </option>
               ))}
             </select>
           </div>
-
-          {/* <div className="relative z-0 w-full mb-6 group">
-            <input
-              type="text"
-              name="status"
-              id="floating_repeat_password"
-              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required
-            />
-            <label
-              htmlFor="floating_repeat_password"
-              className="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Status
-            </label>
-          </div> */}
 
           <div className="relative z-0 w-full mb-6 group">
             <select
               name="status"
               id="status"
               className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              value={formData.status || ""}
+              value={formData?.status || ""}
               onChange={handleChange}
             >
-              <option value="" selected>
-                Status
-              </option>
+              <option value="">Status</option>
               <option value="d">Draft</option>
               <option value="p">Published</option>
             </select>
@@ -155,7 +113,7 @@ const NewBlog = () => {
               className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
-              value={formData.content || ""}
+              value={formData?.content || ""}
               onChange={handleChange}
             />
             <label
